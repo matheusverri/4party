@@ -2,7 +2,7 @@
 
 namespace ForParty.Controllers
 {
-    public class BarController : Controller
+    public class BarRepository : Controller
     {
         public IActionResult Pedido()
         {
