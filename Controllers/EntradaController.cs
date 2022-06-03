@@ -19,36 +19,44 @@ namespace ForParty.Controllers
         }
 
         [HttpPost]
-        public async Task<JsonResult> InserirEntrada(EntradaDTO model)
+        public async Task<IActionResult> InserirEntrada(EntradaDTO model)
         {
             try
             {
                 var resultado = await _entradaService.InserirEntrada(model);
-                return Json(new { success = true, data = resultado });
+                return View("Entrada");
             }
-            catch
+            catch(Exception e)
             {
-                return Json(new { success = false});
+                return View("Entrada");
             }
         }
 
         [HttpGet]
         public IActionResult Saida()
         {
-            return View();
+            var model = new SaidaDTO
+            {
+                Id = null,
+                CPF = "",
+                Nome = "",
+                Status = null
+            };
+
+            return View(model);
         }
 
-        [HttpPost]
-        public async Task<JsonResult> VerificarDadosSaida(SaidaDTO model)
+        [HttpGet]
+        public async Task<IActionResult> VerificarDadosSaida(string cpf)
         {
             try
             {
-                var resultado = await _entradaService.VerificarDadosSaida(model);
-                return Json(new { success = true, data = resultado });
+                var resultado = await _entradaService.VerificarDadosSaida(cpf);
+                return View("Saida", resultado);
             }
             catch
             {
-                return Json(new { success = false });
+                return View("Saida");
             }
         }
     }

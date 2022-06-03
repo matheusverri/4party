@@ -8,8 +8,6 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages()
     .AddRazorRuntimeCompilation();
 
-builder.Configuration.GetConnectionString("conexao");
-
 //Repositories
 builder.Services.AddSingleton<IEntradaRepository, EntradaRepository>();
 

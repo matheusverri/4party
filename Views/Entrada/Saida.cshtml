@@ -1,12 +1,13 @@
-﻿@{
+﻿@model ForParty.Models.SaidaDTO
+@{
     ViewData["Title"] = "Entrada";
 }
 
-<div class="row">
-    <div class="offset-md-3">
+<div class="offset-md-3">
+    <div class="row">
         <div class="container-fluid px-4">
             <h1 class="mt-4">Saida</h1>
-            @using (Html.BeginForm("Saida", "Entrada", FormMethod.Post, new { id = "FormSaida" }))
+            @using (Html.BeginForm("VerificarDadosSaida", "Entrada", FormMethod.Get, new { id = "FormSaida" }))
             {
                 <form>
                     <div class="form-row">
@@ -14,29 +15,25 @@
                             <label class="mb-2">
                                 Identificação:
                             </label>
-                            <input type="text" class="form-control" placeholder="Insira a identificação do cliente">
+                            <input type="text" class="form-control" id="cpf" name="cpf" placeholder="Insira o CPF do cliente">
                         </div>
                     </div>
                     <br />
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <input type="submit" value="Procurar" class="btn btn-warning">
-                        </div>
+                    <div class="col-lg-12">
+                        <input type="submit" value="Procurar" class="btn btn-warning">
                     </div>
                 </form>
             }
 
-            <label class="mb-3 mt-5">Identificação: </label>
+            <label class="mb-3 mt-5">Identificação: @Model.Id</label>
             <br />
-            <label class="mb-3">Nome: </label>
+            <label class="mb-3">Nome: @Model.Nome</label>
             <br />
-            <label class="mb-3">CPF: </label>
+            <label class="mb-3">CPF: @Model.CPF</label>
             <br />
-            <label class="mb-3">Status do pagamento: </label>
+            <label class="mb-3">Status do pagamento: @Model.Status</label>
 
-            <div class="row">
-                <div class="col-lg-12"><input type="submit" value="Concluir" class="btn btn-secondary"></div>
-            </div>
+            <div class="col-lg-12"><input type="submit" value="Concluir" class="btn btn-secondary"></div>
         </div>
     </div>
 </div>
