@@ -5,6 +5,6 @@ namespace ForParty.Service
     public interface IEntradaService
     {
         Task<bool> InserirEntrada(EntradaDTO model);
-        Task<string> VerificarDadosSaida(SaidaDTO model);
+        Task<SaidaDTO> VerificarDadosSaida(string cpf);
     }
 }

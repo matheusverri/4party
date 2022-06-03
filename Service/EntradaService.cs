@@ -17,9 +17,9 @@ namespace ForParty.Service
             return await _entradaRepository.InserirEntrada(model);
         }
 
-        public async Task<string> VerificarDadosSaida(SaidaDTO model)
+        public async Task<SaidaDTO> VerificarDadosSaida(string cpf)
         {
-            return await _entradaRepository.VerificarDadosSaida(model);
+            return await _entradaRepository.VerificarDadosSaida(cpf);
         }
 
     }
