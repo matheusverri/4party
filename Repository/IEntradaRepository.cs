@@ -5,6 +5,6 @@ namespace ForParty.Repository
     public interface IEntradaRepository
     {
         Task<bool> InserirEntrada(EntradaDTO model);
-        Task<string> VerificarDadosSaida(SaidaDTO model);
+        Task<SaidaDTO> VerificarDadosSaida(string cpf);
     }
 }
