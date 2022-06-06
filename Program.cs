@@ -10,9 +10,11 @@ builder.Services.AddRazorPages()
 
 //Repositories
 builder.Services.AddSingleton<IEntradaRepository, EntradaRepository>();
+builder.Services.AddSingleton<ILoginRepository, LoginRepository>();
 
 //Services
 builder.Services.AddSingleton<IEntradaService, EntradaService>();
+builder.Services.AddSingleton<ILoginService, LoginService>();
 
 var app = builder.Build();
 
@@ -31,6 +33,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Home}/{action=Index}/{id?}");
+    pattern: "{controller=Login}/{action=Login}/{id?}");
 
 app.Run();
