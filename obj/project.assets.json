@@ -9532,19 +9532,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\SAMSUNG\\.nuget\\packages\\": {}
+    "C:\\Users\\Gabriel\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\SAMSUNG\\OneDrive - Complexo de Ensino Superior do Brasil LTDA\\Área de Trabalho\\for-party\\ForParty.csproj",
+      "projectUniqueName": "D:\\Git\\for-party\\ForParty.csproj",
       "projectName": "ForParty",
-      "projectPath": "C:\\Users\\SAMSUNG\\OneDrive - Complexo de Ensino Superior do Brasil LTDA\\Área de Trabalho\\for-party\\ForParty.csproj",
-      "packagesPath": "C:\\Users\\SAMSUNG\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\SAMSUNG\\OneDrive - Complexo de Ensino Superior do Brasil LTDA\\Área de Trabalho\\for-party\\obj\\",
+      "projectPath": "D:\\Git\\for-party\\ForParty.csproj",
+      "packagesPath": "C:\\Users\\Gabriel\\.nuget\\packages\\",
+      "outputPath": "D:\\Git\\for-party\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\SAMSUNG\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Gabriel\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
