@@ -5,7 +5,7 @@ namespace ForParty.Service
 {
     public class EntradaService : IEntradaService
     {
-        private readonly IEntradaRepository _entradaRepository;
+        private IEntradaRepository _entradaRepository;
 
         public EntradaService(IEntradaRepository entradaRepository)
         {
@@ -22,5 +22,9 @@ namespace ForParty.Service
             return await _entradaRepository.VerificarDadosSaida(cpf);
         }
 
+        public async Task<bool> InserirSaidaCliente(string cpf)
+        {
+            return await _entradaRepository.InserirSaidaCliente(cpf);
+        }
     }
 }

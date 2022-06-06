@@ -1,4 +1,5 @@
-﻿using ForParty.Models;
+﻿using System;
+using ForParty.Models;
 using ForParty.Service;
 using Microsoft.AspNetCore.Mvc;
 
@@ -26,7 +27,7 @@ namespace ForParty.Controllers
                 var resultado = await _entradaService.InserirEntrada(model);
                 return View("Entrada");
             }
-            catch(Exception e)
+            catch
             {
                 return View("Entrada");
             }
@@ -35,15 +36,7 @@ namespace ForParty.Controllers
         [HttpGet]
         public IActionResult Saida()
         {
-            var model = new SaidaDTO
-            {
-                Id = null,
-                CPF = "",
-                Nome = "",
-                Status = null
-            };
-
-            return View(model);
+            return View();
         }
 
         [HttpGet]
@@ -52,9 +45,29 @@ namespace ForParty.Controllers
             try
             {
                 var resultado = await _entradaService.VerificarDadosSaida(cpf);
-                return View("Saida", resultado);
+                if (resultado == null)
+                    return View("Saida");
+                else
+                    return View("Saida", resultado);
             }
-            catch
+            catch (Exception e)
+            {
+                return View("Saida");
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> InserirSaidaCliente(string cpf)
+        {
+            try
+            {
+                var resultado = await _entradaService.InserirSaidaCliente(cpf);
+                if (resultado == false)
+                    return View("Saida");
+                else
+                    return View("Saida");
+            }
+            catch (Exception e)
             {
                 return View("Saida");
             }

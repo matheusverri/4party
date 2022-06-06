@@ -2,8 +2,9 @@
 
 namespace ForParty.Controllers
 {
-    public class BarRepository : Controller
+    public class BarController : Controller
     {
+        [HttpGet]
         public IActionResult Pedido()
         {
             return View();

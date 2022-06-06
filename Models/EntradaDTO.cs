@@ -6,7 +6,7 @@
         public string? CPF { get; set; }
         public string? Email { get; set; }
         public DateTime Nascimento { get; set; }
-        public int Sexo { get; set; }
-        public int Ingresso { get; set; }
+        public SexoEnum Sexo { get; set; }
+        public IngressoEnum Ingresso { get; set; }
     }
 }
