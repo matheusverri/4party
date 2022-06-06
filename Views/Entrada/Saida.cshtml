@@ -1,39 +1,85 @@
 ﻿@model ForParty.Models.SaidaDTO
 @{
-    ViewData["Title"] = "Entrada";
+    ViewData["Title"] = "Saida";
 }
 
-<div class="offset-md-3">
-    <div class="row">
-        <div class="container-fluid px-4">
+<div class="row">
+    <div class="container-fluid px-4" id="saida">
+        <div class="offset-md-3">
             <h1 class="mt-4">Saida</h1>
             @using (Html.BeginForm("VerificarDadosSaida", "Entrada", FormMethod.Get, new { id = "FormSaida" }))
             {
-                <form>
+                <form id="form-informacao-cliente">
                     <div class="form-row">
                         <div class="col-6 mt-2">
                             <label class="mb-2">
                                 Identificação:
                             </label>
-                            <input type="text" class="form-control" id="cpf" name="cpf" placeholder="Insira o CPF do cliente">
+                            <input type="text" class="form-control" id="verifica-cpf" name="cpf" placeholder="Insira o CPF do cliente" required>
                         </div>
                     </div>
                     <br />
-                    <div class="col-lg-12">
-                        <input type="submit" value="Procurar" class="btn btn-warning">
+                    <div class="col-lg-12 mb-5">
+                        <button class="btn btn-warning" id="btn-consulta-saida">Procurar</button>
                     </div>
                 </form>
             }
+        </div>
 
-            <label class="mb-3 mt-5">Identificação: @Model.Id</label>
-            <br />
-            <label class="mb-3">Nome: @Model.Nome</label>
-            <br />
-            <label class="mb-3">CPF: @Model.CPF</label>
-            <br />
-            <label class="mb-3">Status do pagamento: @Model.Status</label>
-
-            <div class="col-lg-12"><input type="submit" value="Concluir" class="btn btn-secondary"></div>
+        <div id="card-saida" class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-table me-1"></i>
+                Informações
+            </div>
+            <div class="card-body">
+                @if (Model == null)
+                {
+                    <p>Por favor, verifique o CPF.</p>
+                }
+                else
+                {
+                    if (Model.CPF == null)
+                    {
+                        <p>CPF não encontrado, por favor, verifique o CPF digitado e tente novamente.</p>
+                    }
+                    else
+                    {
+                        <table id="datatable-saida" class="display" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th class="col-3">Entrada</th>
+                                    <th class="col-3">Nome</th>
+                                    <th class="col-3">CPF</th>
+                                    <th class="col-3">Status do pagamento</th>
+                                    <th class="col-3"></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @{
+                                    var verificaPagamento = Model.Status == "Pago" ? "btn btn-success" : "d-none";
+                                }
+                                <tr>
+                                    <td>@Model.HoraEntrada</td>
+                                    <td>@Model.Nome</td>
+                                    <td>@Model.CPF</td>
+                                    <td>@Model.Status</td>
+                                    <td>
+                                        <div class="col-lg-12">
+                                            @using (Html.BeginForm("InserirSaidaCliente", "Entrada", FormMethod.Post, new { id = "FormSaidaCliente" }))
+                                            {
+                                                <input type="hidden" id="saida-cliente" name="cpf" value="@Model.CPF"/>
+                                                <button type="submit" class="@verificaPagamento" onclick="javascript:location.reload()">Concluir</button>
+                                            }
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    }
+                }
+            </div>
         </div>
     </div>
 </div>
+
+<script type="text/javascript" charset="utf8" src="~/js/entrada/saida.js"></script>

@@ -15,6 +15,8 @@ namespace ForParty.Repository
 
         public async Task<bool> InserirEntrada(EntradaDTO model)
         {
+            var statusPagamento = 1;
+
             var parametro = new DynamicParameters();
             parametro.Add("@Nome", model.Nome, DbType.String);
             parametro.Add("@CPF", model.CPF, DbType.String);
@@ -22,6 +24,7 @@ namespace ForParty.Repository
             parametro.Add("@Nascimento", model.Nascimento, DbType.String);
             parametro.Add("@Sexo", model.Sexo, DbType.String);
             parametro.Add("@Ingresso", model.Ingresso, DbType.String);
+            parametro.Add("@statusPagamento", statusPagamento, DbType.String);
             parametro.Add("@Retorno", dbType: DbType.Boolean, direction: ParameterDirection.Output);
 
             var insercao = @"
@@ -45,7 +48,7 @@ namespace ForParty.Repository
                         ,@Nascimento
                         ,@Sexo
                         ,@Ingresso
-                        ,1
+                        ,@statusPagamento
                         ,GETDATE()
                     )
                 SET @Retorno = 1
@@ -70,22 +73,19 @@ namespace ForParty.Repository
         public async Task<SaidaDTO> VerificarDadosSaida(string cpf)
         {
             var parametro = new DynamicParameters();
-            parametro.Add("@Nome", cpf, DbType.String);
+            parametro.Add("@cpf", cpf, DbType.String);
 
             var consulta = @"
                 SELECT     
-                     C.[Id]
-	                ,C.[Nome]	
-	                ,C.[CPF]	
-	                ,C.[Email]		
-	                ,C.[Nascimento]
-	                ,[Status] = P.[Tipo]
-	                ,C.[DataHoraEntrada]
+	                 C.[Nome]	
+	                ,C.[CPF]		
+	                ,[HoraEntrada]          = C.[DataHoraEntrada]
+	                ,[Status]               = P.[Tipo]
                 FROM 
 	                [ForParty].[dbo].[Cliente] C
 	                INNER JOIN [ForParty].[dbo].[StatusPagamento] P ON P.[Id] = C.[StatusPagamento]
                 WHERE 
-	                [CPF] = '04884804900'
+	                [CPF] = @cpf
 	                AND [DataHoraEntrada] IN 
                         (
                             SELECT    
@@ -93,8 +93,8 @@ namespace ForParty.Repository
                             FROM 
 	                            [ForParty].[dbo].[Cliente]
                             WHERE
-	                            [CPF] = '04884804900'
-                        )";
+	                            [CPF] = @cpf
+		                )";
 
             SaidaDTO resultado;
             using (var conn = new SqlConnection(_configuration.GetConnectionString("Conexao")))
@@ -102,6 +102,48 @@ namespace ForParty.Repository
                 conn.Open();
                 var execute = await conn.QueryAsync<SaidaDTO>(consulta, parametro);
                 resultado = execute.FirstOrDefault();
+            }
+
+            return resultado;
+        }
+
+        public async Task<bool> InserirSaidaCliente(string cpf)
+        {
+            var parametro = new DynamicParameters();
+            parametro.Add("@cpf", cpf, DbType.String);
+            parametro.Add("@Resultado", dbType: DbType.Boolean, direction: ParameterDirection.Output);
+
+            var consulta = @"
+                BEGIN TRY
+	                UPDATE
+		                [ForParty].[dbo].[Cliente]
+		                SET [DataHoraSaida] = GETDATE()
+	                WHERE 
+		                [CPF] = @cpf
+		                AND [DataHoraEntrada] IN 
+			                (
+				                SELECT    
+					                MAX([DataHoraEntrada])
+				                FROM 
+					                [ForParty].[dbo].[Cliente]
+				                WHERE
+					                [CPF] = @cpf
+			                )
+
+	                SET @Resultado = 1
+                END TRY
+                BEGIN CATCH
+	                SET @Resultado = 0
+                END CATCH
+
+                SELECT @Resultado";
+
+            bool resultado;
+            using (var conn = new SqlConnection(_configuration.GetConnectionString("Conexao")))
+            {
+                conn.Open();
+                var execute = await conn.QueryAsync<bool>(consulta, parametro);
+                resultado = parametro.Get<bool>("@Resultado");
             }
 
             return resultado;

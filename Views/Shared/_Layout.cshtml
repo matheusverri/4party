@@ -7,25 +7,37 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
     <title>ForParty - Sua balada conectada</title>
-    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
+
+    <!--CSS-->
+    <link href="~/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <link href="~/lib/fontawesome/css/fontawesome.min.css" rel="stylesheet" />
+    <link href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css" rel="stylesheet" />
     <link href="~/css/styles.css" rel="stylesheet" />
     <link href="~/css/site.css" rel="stylesheet" />
-    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
+
+    <!--Javascript-->
+    <script type="text/javascript" src="~/js/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="~/js/scripts.js"></script>
+    <script type="text/javascript" src="~/js/datatables-simple-demo.js"></script>
+    <script type="text/javascript" src="~/lib/fontawesome/js/fontawesome.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
 </head>
 <body class="sb-nav-fixed">
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-        <!-- Navbar Brand-->
         <a class="navbar-brand ps-3" href="index.html">ForParty</a>
-        <!-- Sidebar Toggle-->
         <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
-        <!-- Navbar Search-->
         <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
             <div class="input-group">
                 <input class="form-control" type="text" placeholder="Buscar..." aria-label="Buscar..." aria-describedby="btnNavbarSearch" />
                 <button class="btn btn-primary" id="btnNavbarSearch" type="button"><i class="fas fa-search"></i></button>
             </div>
         </form>
-        <!-- Navbar-->
         <div class="m-3">
             <div>< <i class="fas fa-user fa-fw"></i>></div>
         </div>
@@ -35,6 +47,7 @@
             <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
                 <div class="sb-sidenav-menu">
                     <div class="nav">
+
                         @*Entrada*@
                         <div class="sb-sidenav-menu-heading">Entrada</div>
                         <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseEntrada" aria-expanded="false" aria-controls="collapsePages">
@@ -48,6 +61,7 @@
                                 <a class="nav-link" asp-controller="Entrada" asp-action="Saida">Saida</a>
                             </nav>
                         </div>
+
                         @*Bar*@
                         <div class="sb-sidenav-menu-heading">Bar</div>
                         <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseBar" aria-expanded="false" aria-controls="collapsePages">
@@ -60,6 +74,7 @@
                                 <a class="nav-link" asp-controller="Bar" asp-action="Pedido">Pedido</a>
                             </nav>
                         </div>
+
                         @*Caixa*@
                         <div class="sb-sidenav-menu-heading">Caixa</div>
                         <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseCaixa" aria-expanded="false" aria-controls="collapsePages">
@@ -72,6 +87,7 @@
                                 <a class="nav-link" asp-controller="Caixa" asp-action="Caixa">Caixa</a>
                             </nav>
                         </div>
+
                         @*Administração*@
                         <div class="sb-sidenav-menu-heading">Administração</div>
                         <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapseAdministracao" aria-expanded="false" aria-controls="collapsePages">
@@ -95,10 +111,5 @@
             </main>
         </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-    <script src="~/js/scripts.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
-    <script src="~/js/datatables-simple-demo.js"></script>
 </body>
 </html>
