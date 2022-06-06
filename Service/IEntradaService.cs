@@ -6,5 +6,6 @@ namespace ForParty.Service
     {
         Task<bool> InserirEntrada(EntradaDTO model);
         Task<SaidaDTO> VerificarDadosSaida(string cpf);
+        Task<bool> InserirSaidaCliente(string cpf);
     }
 }
