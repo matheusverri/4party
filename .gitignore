@@ -1,4 +1,4 @@
 .vs
 .git
-.obj
-.appsettings
+*bin
+*obj
