@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "3wTMlV+3khp3Z4tgYtUPEIBw1Ep7a7Z3h8JzixtHSaY=",
+  "Hash": "q14a9THQsGV8eNTW6JmfEpT3wDmf7urVJMlEi6kXRXE=",
   "Source": "ForParty",
   "BasePath": "_content/ForParty",
   "Mode": "Default",
@@ -168,6 +168,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\entrada\\saida.js"
+    },
+    {
+      "Identity": "D:\\Git\\for-party\\wwwroot\\js\\estoque\\estoque.js",
+      "SourceId": "ForParty",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Git\\for-party\\wwwroot\\",
+      "BasePath": "_content/ForParty",
+      "RelativePath": "js/estoque/estoque.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\estoque\\estoque.js"
     },
     {
       "Identity": "D:\\Git\\for-party\\wwwroot\\js\\jquery-3.6.0.min.js",

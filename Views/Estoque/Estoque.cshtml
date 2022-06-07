@@ -1,0 +1,73 @@
+﻿@model List<ForParty.Models.EstoqueDTO>
+@{
+    ViewData["Title"] = "Estoque";
+}
+<div class="row">
+    <div class="container-fluid px-4" id="estoque">
+        <h1 class="mt-4">Estoque</h1>
+
+        <div id="card-estoque" class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-table me-1"></i>
+                Informações
+            </div>
+            <div class="card-body">
+                @if (@Model == null)
+                {
+                    <p>Sem registro de dados.</p>
+                }
+                else
+                {
+                    <table id="datatable-saida" class="display" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th class="col-3">Nome</th>
+                                <th class="col-2">Preco</th>
+                                <th class="col-2">Quantidade</th>
+                                <th class="col-1">Entrada</th>
+                                <th class="col-1">Vencimento</th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.Nome</td>
+                                    <td>@item.Preco</td>
+                                    <td>@item.Quantidade</td>
+                                    <td>@item.DataEntrada</td>
+                                    <td>@item.DataVencimento</td>
+                                    <td>
+                                        @using (Html.BeginForm("AdicionarEstoque", "Estoque", FormMethod.Get, new { id = "FormExcluirEstoque" }))
+                                        {
+                                            <input type="hidden" id="adicionar-estoque" name="id" value="@item.Id" />
+                                            <button type="submit" class="btn btn-success" onclick="javascript:location.reload()">Adicionar</button>
+                                        }
+                                    </td>
+                                    <td>
+                                        @using (Html.BeginForm("EditarEstoque", "Estoque", FormMethod.Get, new { id = "FormExcluirEstoque" }))
+                                        {
+                                            <input type="hidden" id="editar-estoque" name="id" value="@item.Id" />
+                                            <button type="submit" class="btn btn-warning" onclick="javascript:location.reload()">Editar</button>
+                                        }
+                                    </td>
+                                    <td>
+                                        @using (Html.BeginForm("ExcluirEstoque", "Estoque", FormMethod.Post, new { id = "FormExcluirEstoque" }))
+                                        {
+                                            <input type="hidden" id="excluir-estoque" name="id" value="@item.Id" />
+                                            <button type="submit" class="btn btn-danger" onclick="javascript:location.reload()">Excluir</button>
+                                        }
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" charset="utf8" src="~/js/estoque/estoque.js"></script>

@@ -1,0 +1,52 @@
+﻿@model ForParty.Models.EstoqueDTO
+@{
+    ViewData["Title"] = "Editar estoque";
+}
+
+<div class="offset-md-3">
+    <div class="row">
+        <div class="container-fluid px-4">
+            <h1 class="mt-4">Editar estoque</h1>
+            @using (Html.BeginForm("EditarEstoque", "Estoque", FormMethod.Post, new { id = "FormEditarEstoque" }))
+            {
+                <form>
+                    @Html.HiddenFor(@Model.Id);
+                    <div class="form-row">
+                        <div class="col-6 mt-2">
+                            <label class="mb-2">
+                                Nome:
+                            </label>
+                            <input asp-for="@Model.Nome" class="form-control" placeholder="Insira o nome">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-6 mt-2">
+                            <label class="mb-2">
+                                Preço:
+                            </label>
+                            <input asp-for="@Model.Preco" class="form-control" placeholder="Insira o CPF">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-6 mt-2">
+                            <label class="mb-2">
+                                Data entrada:
+                            </label>
+                            <input type="email" asp-for="@Model.DataEntrada" class="form-control" placeholder="Insira o E-mail">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="col-6 mt-2">
+                            <label class="mb-2">
+                                Data vencimento:
+                            </label>
+                            <input type="date" asp-for="@Model.DataVencimento" class="form-control" placeholder="Insira a idade">
+                        </div>
+                    </div>
+                    <br />
+                    <div class="col-lg-12"><input type="submit" value="Editar" class="btn btn-success"></div>
+                </form>
+            }
+        </div>
+    </div>
+</div>
