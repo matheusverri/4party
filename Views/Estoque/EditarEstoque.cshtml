@@ -1,0 +1,55 @@
+﻿@model ForParty.Models.EditaEstoqueDTO
+@{
+    ViewData["Title"] = "Editar estoque";
+}
+
+
+@if (@Model == null)
+{
+    <div class="container-fluid px-4" id="administracao">
+        <h1 class="mt-4">Análise</h1>
+        <div id="card-administracao" class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-table me-1"></i>
+                Informações
+            </div>
+            <div class="card-body">
+                <p>Sem registro de dados.</p>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <div class="offset-md-3">
+        <div class="row">
+            <div class="container-fluid px-4">
+                <h1 class="mt-4">Editar estoque</h1>
+                @using (Html.BeginForm("EditarEstoque", "Estoque", FormMethod.Post, new { id = "FormEditarEstoque" }))
+                {
+                    <form>
+                        <input type="hidden" id="adicionar-estoque" name="id" asp-for="@Model.Id" />
+                        <div class="form-row">
+                            <div class="col-6 mt-2">
+                                <label class="mb-2">
+                                    Nome:
+                                </label>
+                                <input asp-for="@Model.Nome" class="form-control" placeholder="Insira o Nome">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="col-6 mt-2">
+                                <label class="mb-2">
+                                    Preço:
+                                </label>
+                                <input asp-for="@Model.Preco" class="form-control" placeholder="Insira o Preço">
+                            </div>
+                        </div>
+                        <br />
+                        <div class="col-lg-12"><input type="submit" value="Concluir" class="btn btn-success"></div>
+                    </form>
+                }
+            </div>
+        </div>
+    </div>
+}

@@ -65,9 +65,9 @@
                                     <td>@Model.Status</td>
                                     <td>
                                         <div class="col-lg-12">
-                                            @using (Html.BeginForm("InserirSaidaCliente", "Entrada", FormMethod.Post, new { id = "FormSaidaCliente" }))
+                                            @using (Html.BeginForm("ExcluirEstoque", "Estoque", FormMethod.Post, new { id = "FormExcluirEstoque" }))
                                             {
-                                                <input type="hidden" id="saida-cliente" name="cpf" value="@Model.CPF"/>
+                                                <input type="hidden" id="saida-cliente" name="id" value="@Model.CPF"/>
                                                 <button type="submit" class="@verificaPagamento" onclick="javascript:location.reload()">Concluir</button>
                                             }
                                         </div>
