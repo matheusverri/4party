@@ -103,7 +103,6 @@ namespace ForParty.Repository
                 var execute = await conn.QueryAsync<SaidaDTO>(consulta, parametro);
                 resultado = execute.FirstOrDefault();
             }
-
             return resultado;
         }
 
@@ -150,3 +149,4 @@ namespace ForParty.Repository
         }
     }
 }
+

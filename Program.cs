@@ -10,9 +10,13 @@ builder.Services.AddRazorPages()
 
 //Repositories
 builder.Services.AddSingleton<IEntradaRepository, EntradaRepository>();
+builder.Services.AddSingleton<IAdministracaoRepository, AdministracaoRepository>();
 
 //Services
 builder.Services.AddSingleton<IEntradaService, EntradaService>();
+
+builder.Services.AddSingleton<IAdministracaoService, AdministracaoService>();
+
 
 var app = builder.Build();
 
