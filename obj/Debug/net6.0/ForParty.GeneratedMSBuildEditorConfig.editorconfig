@@ -15,8 +15,12 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes = true
 build_property.MSBuildProjectDirectory = D:\Git\for-party
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/Git/for-party/Views/Bar/Pedido.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQmFyXFBlZGlkby5jc2h0bWw=
+[D:/Git/for-party/Views/Administracao/Analise.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYWNhb1xBbmFsaXNlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Git/for-party/Views/Administracao/Estoque.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYWNhb1xFc3RvcXVlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Git/for-party/Views/Caixa/Caixa.cshtml]
@@ -31,6 +35,14 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRW50cmFkYVxTYWlkYS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/Git/for-party/Views/Estoque/AdicionarEstoque.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXN0b3F1ZVxBZGljaW9uYXJFc3RvcXVlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Git/for-party/Views/Estoque/AdicionarItemEstoque.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXN0b3F1ZVxBZGljaW9uYXJJdGVtRXN0b3F1ZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/Git/for-party/Views/Estoque/EditarEstoque.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcRXN0b3F1ZVxFZGl0YXJFc3RvcXVlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
@@ -41,6 +53,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/Git/for-party/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Git/for-party/Views/Pedido/Pedido.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVkaWRvXFBlZGlkby5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Git/for-party/Views/_ViewImports.cshtml]

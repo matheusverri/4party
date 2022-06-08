@@ -5,7 +5,7 @@
             'paging': true,
             'info': false,
             'scrollCollapse': false,
-            'filter': false,
+            'filter': true,
             'ordering': true
         })
     }

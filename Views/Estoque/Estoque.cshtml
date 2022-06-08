@@ -6,6 +6,11 @@
     <div class="container-fluid px-4" id="estoque">
         <h1 class="mt-4">Estoque</h1>
 
+        @using (Html.BeginForm("AdicionarItemEstoque", "Estoque", FormMethod.Get, new { id = "FormObterAdicionarItemEstoque" }))
+        {
+            <button type="submit" class="btn btn-success m-3">Adicionar novo item</button>
+        }
+
         <div id="card-estoque" class="card mb-4">
             <div class="card-header">
                 <i class="fas fa-table me-1"></i>
@@ -41,14 +46,14 @@
                                     <td>@item.DataEntrada</td>
                                     <td>@item.DataVencimento</td>
                                     <td>
-                                        @using (Html.BeginForm("AdicionarEstoque", "Estoque", FormMethod.Get, new { id = "FormExcluirEstoque" }))
+                                        @using (Html.BeginForm("ObterAdicionarEstoque", "Estoque", FormMethod.Get, new { id = "FormObterAdicionarEstoque" }))
                                         {
                                             <input type="hidden" id="adicionar-estoque" name="id" value="@item.Id" />
                                             <button type="submit" class="btn btn-success" onclick="javascript:location.reload()">Adicionar</button>
                                         }
                                     </td>
                                     <td>
-                                        @using (Html.BeginForm("EditarEstoque", "Estoque", FormMethod.Get, new { id = "FormExcluirEstoque" }))
+                                        @using (Html.BeginForm("ObterEditarEstoque", "Estoque", FormMethod.Get, new { id = "FormObterEditarEstoque" }))
                                         {
                                             <input type="hidden" id="editar-estoque" name="id" value="@item.Id" />
                                             <button type="submit" class="btn btn-warning" onclick="javascript:location.reload()">Editar</button>

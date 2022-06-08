@@ -21,14 +21,29 @@ namespace ForParty.Service
             return await _estoqueRepository.ExcluirEstoque(id);
         }
 
-        public async Task<EstoqueDTO> AdicionarEstoque(int id)
+        public async Task<EditaEstoqueDTO> ObterEditarEstoque(int id)
         {
-            return await _estoqueRepository.ObterItemEstoque(id);
+            return await _estoqueRepository.ObterEditarEstoque(id);
         }
 
-        public async Task<EstoqueDTO> EditarEstoque(int id)
+        public async Task<bool> EditarEstoque(EditaEstoqueDTO model)
         {
-            return await _estoqueRepository.ObterItemEstoque(id);
+            return await _estoqueRepository.EditarEstoque(model);
+        }
+
+        public async Task<AdicionarEstoqueDTO> ObterAdicionarEstoque(int id)
+        {
+            return await _estoqueRepository.ObterAdicionarEstoque(id);
+        }
+
+        public async Task<bool> AdicionarEstoque(AdicionarEstoqueDTO model)
+        {
+            return await _estoqueRepository.AdicionarEstoque(model);
+        }
+
+        public async Task<bool> AdicionarItemEstoque(AdicionarItemEstoqueDTO model)
+        {
+            return await _estoqueRepository.AdicionarItemEstoque(model);
         }
     }
 }

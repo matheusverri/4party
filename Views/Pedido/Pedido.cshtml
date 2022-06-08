@@ -1,0 +1,63 @@
+﻿@model List<ForParty.Models.PedidoDTO>
+@{
+    ViewData["Title"] = "Bar";
+}
+<div class="row">
+    <div class="container-fluid px-4" id="estoque">
+        <h1 class="mt-4">Estoque</h1>
+
+        @using (Html.BeginForm("AdicionarPedido", "Pedido", FormMethod.Get, new { id = "FormAdicionarNovoPedido" }))
+        {
+            <button type="submit" class="btn btn-success m-3">Adicionar novo pedido</button>
+        }
+
+        <div id="card-estoque" class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-table me-1"></i>
+                Informações
+            </div>
+            <div class="card-body">
+                @if (@Model == null)
+                {
+                    <p>Sem registro de dados.</p>
+                }
+                else
+                {
+                    <table id="datatable-saida" class="display" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th class="col-2">Hora do pedido</th>
+                                <th class="col-3">Nome</th>
+                                <th class="col-2">CPF</th>
+                                <th class="col-1">Pedido</th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.HoraEntrada</td>
+                                    <td>@item.Nome</td>
+                                    <td>@item.CPF</td>
+                                    <td>@item.Pedido</td>
+                                    <td>
+                                        @using (Html.BeginForm("", "", FormMethod.Post, new { id = "Form3" }))
+                                        {
+                                            <input type="hidden" id="excluir-estoque" name="id" value="@item.Id" />
+                                            <button type="submit" class="btn btn-danger" onclick="javascript:location.reload()">Excluir</button>
+                                        }
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" charset="utf8" src="~/js/bar/bar.js"></script>

@@ -1,0 +1,46 @@
+﻿@model List<ForParty.Models.AdministracaoDTO>
+@{
+    ViewData["Title"] = "Administração";
+}
+<div class="row">
+    <div class="container-fluid px-4" id="administracao">
+        <h1 class="mt-4">Análise</h1>
+        <div id="card-administracao" class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-table me-1"></i>
+                Informações
+            </div>
+            <div class="card-body">
+                @if (@Model == null)
+                {
+                    <p>Sem registro de dados.</p>
+                }
+                else
+                {
+                    <table id="datatable-administracao" class="display" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th class="col-3">CPF</th>
+                                <th class="col-2">Sexo</th>
+                                <th class="col-2">Horário Entrada</th>
+                                <th class="col-1">Horário Saída</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>@item.CPF</td>
+                                    <td>@item.Sexo</td>
+                                    <td>@item.HoraEntrada</td>
+                                    <td>@item.HoraSaida</td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" charset="utf8" src="~/js/administracao/administracao.js"></script>
