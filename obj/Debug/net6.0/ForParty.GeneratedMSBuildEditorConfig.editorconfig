@@ -19,10 +19,6 @@ build_property._RazorSourceGeneratorDebug =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYWNhb1xBbmFsaXNlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Git/for-party/Views/Administracao/Estoque.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5pc3RyYWNhb1xFc3RvcXVlLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
 [D:/Git/for-party/Views/Caixa/Caixa.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQ2FpeGFcQ2FpeGEuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
@@ -61,6 +57,10 @@ build_metadata.AdditionalFiles.CssScope =
 
 [D:/Git/for-party/Views/Login/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cTG9naW4uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Git/for-party/Views/Pedido/AdicionarPedido.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVkaWRvXEFkaWNpb25hclBlZGlkby5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/Git/for-party/Views/Pedido/Pedido.cshtml]

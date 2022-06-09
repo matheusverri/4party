@@ -16,5 +16,20 @@ namespace ForParty.Service
         {
             return await _pedidoService.Pedido();
         }
+
+        public async Task<List<ObterProdutoPedidoDTO>> ObterProdutosEstoquePedido()
+        {
+            return await _pedidoService.ObterProdutosEstoquePedido();
+        }
+        
+        public async Task<bool> AdicionarPedido(string cpf, string nome, string pedido)
+        {
+            return await _pedidoService.AdicionarPedido(cpf, nome, pedido);
+        }
+
+        public async Task<bool> ConcluirPedido(int id)
+        {
+            return await _pedidoService.ConcluirPedido(id);
+        }
     }
 }
