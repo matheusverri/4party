@@ -19,18 +19,39 @@ namespace ForParty.Controllers
             return View(resultado);
         }
 
-        //[HttpPost]
-        //public async Task<IActionResult> InserirPedido(PedidoDTO model)
-        //{
-        //    try
-        //    {
-        //        var resultado = await _entradaService.InserirEntrada(model);
-        //        return View("Pedido");
-        //    }
-        //    catch
-        //    {
-        //        return View("Pedido");
-        //    }
-        //}
+        [HttpGet]
+        public async Task<IActionResult> ObterProdutosEstoquePedido()
+        {
+            var resultado = await _pedidoService.ObterProdutosEstoquePedido();
+            return View("AdicionarPedido", resultado);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AdicionarPedido(string cpf, string nome, string pedido)
+        {
+            try
+            {
+                var resultado = await _pedidoService.AdicionarPedido(cpf, nome, pedido);
+                return RedirectToAction("Pedido");
+            }
+            catch
+            {
+                return RedirectToAction("ObterProdutosEstoquePedido");
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ConcluirPedido(int id)
+        {
+            try
+            {
+                var resultado = await _pedidoService.ConcluirPedido(id);
+                return RedirectToAction("Pedido");
+            }
+            catch
+            {
+                return RedirectToAction("Pedido");
+            }
+        }
     }
 }
