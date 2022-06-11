@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "1S+nE721s2XyaKfBvl9Gqw70C5OE1R2LwEO8WdFmNL4=",
+  "Hash": "dlEv+EDbChkCm4+8mltIff/f0wiVRMwIWfsqSOBMGQA=",
   "Source": "ForParty",
   "BasePath": "_content/ForParty",
   "Mode": "Default",
@@ -219,6 +219,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\jquery-3.6.0.min.js"
+    },
+    {
+      "Identity": "D:\\Git\\for-party\\wwwroot\\js\\login\\login.js",
+      "SourceId": "ForParty",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Git\\for-party\\wwwroot\\",
+      "BasePath": "_content/ForParty",
+      "RelativePath": "js/login/login.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\login\\login.js"
     },
     {
       "Identity": "D:\\Git\\for-party\\wwwroot\\js\\scripts.js",
