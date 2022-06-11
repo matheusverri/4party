@@ -1,40 +1,77 @@
-﻿@{
-    ViewData["Title"] = "Saida";
+﻿@model ForParty.Models.ClienteCaixaDTO
+@{
+    ViewData["Title"] = "Caixa";
 }
 
 <div class="row">
-    <div class="offset-md-3">
-        <div class="container-fluid px-4">
+    <div class="container-fluid px-4" id="caixa">
+        <div class="offset-md-3">
             <h1 class="mt-4">Saida</h1>
-            @using (Html.BeginForm("Caixa", "Caixa", FormMethod.Post, new { id = "FormEntrada" }))
+            @using (Html.BeginForm("VerificarDadosCaixa", "Caixa", FormMethod.Get, new { id = "FormCaixa" }))
             {
-                <form>
+                <form id="form-informacao-cliente">
                     <div class="form-row">
                         <div class="col-6 mt-2">
                             <label class="mb-2">
                                 Identificação:
                             </label>
-                            <input type="text" class="form-control" placeholder="Insira o nome">
+                            <input type="text" class="form-control" id="verifica-cpf" name="cpf" placeholder="Insira o CPF do cliente" required>
                         </div>
                     </div>
-                    <div class="form-row">
-                        <div class="col-6 mt-2">
-                            <label class="mb-2">
-                                Consumo:
-                            </label>
-                            <br>
-                            <textarea class="form-control" readonly></textarea>
-                        </div>
-                    </div>
-                    <label class="mt-3">
-                        Valor final:
-                    </label>
                     <br />
-                    <div class="row">
-                        <div class="col-lg-12 mt-3"><input type="submit" value="Concluir" class="btn btn-success"></div>
+                    <div class="col-lg-12 mb-5">
+                        <button class="btn btn-warning" id="btn-consulta-saida">Procurar</button>
                     </div>
                 </form>
             }
         </div>
+
+        <div id="card-caixa" class="card mb-4">
+            <div class="card-header">
+                <i class="fas fa-table me-1"></i>
+                Informações
+            </div>
+            <div class="card-body">
+                @if (Model == null)
+                {
+                    <p>Por favor, verifique o CPF.</p>
+                }
+                else
+                {
+                    if (Model.Consumo == null)
+                    {
+                        <p>por favor, verifique o CPF digitado e tente novamente.</p>
+                    }
+                    else
+                    {
+                        <table id="datatable-caixa" class="display" style="width:100%">
+                            <thead>
+                                <tr>
+                                    <th class="col-5">Preço</th>
+                                    <th class="col-5">Valor</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var item in Model.Consumo)
+                                {
+                                    <tr>
+                                        <td>@item.Pedido</td>
+                                        <td>@item.Preco</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    }
+                    <h3 class="mt-3">Valor total: @Model.ValorTotal</h3>
+                    @using (Html.BeginForm("ConcluirPagamento", "Caixa", FormMethod.Post, new { id = "formConcluirPagamento" }))
+                    {
+                        <input type="hidden" id="saida-cliente" value="@Model.CPF" name="cpf" />
+                        <button type="submit"  onclick="javascript:location.reload()">Concluir</button>
+                    }
+                }
+            </div>
+        </div>
     </div>
 </div>
+
+<script type="text/javascript" charset="utf8" src="~/js/bar/bar.js"></script>
