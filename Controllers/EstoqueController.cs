@@ -83,7 +83,7 @@ namespace ForParty.Controllers
         {
             var resultado = await _estoqueService.AdicionarItemEstoque(model);
             if (resultado == false)
-                return View("AdicionarItemEstoque");
+                return RedirectToAction("AdicionarItemEstoque");
             else
                 return RedirectToAction("Estoque", "Estoque");
         }

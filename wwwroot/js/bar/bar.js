@@ -1,6 +1,6 @@
 ﻿$(document).ready(function () {
-    if ($('#caixa').length) {
-        $('#datatable-caixa').DataTable({
+    if ($('#pedido').length) {
+        $('#datatable-pedido').DataTable({
         })
     }
 })

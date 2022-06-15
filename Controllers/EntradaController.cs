@@ -25,11 +25,11 @@ namespace ForParty.Controllers
             try
             {
                 var resultado = await _entradaService.InserirEntrada(model);
-                return View("Entrada");
+                return RedirectToAction("Entrada");
             }
             catch
             {
-                return View("Entrada");
+                return RedirectToAction("Entrada");
             }
         }
 

@@ -104,7 +104,7 @@ namespace ForParty.Repository
 		                FROM
 			                [ForParty].[dbo].[Estoque]
 		                WHERE
-			                [Nome] = @Nome
+			                [Nome] = @Pedido
 	                )
 
 	                UPDATE

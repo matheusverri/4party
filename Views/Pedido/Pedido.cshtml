@@ -5,7 +5,7 @@
 
 @if (Model == null)
 {
-    <h1 class="mt-4">Análise</h1>
+    <h1 class="mt-4">Bar</h1>
     <div id="card-administracao" class="card mb-4">
         <div class="card-header">
             <i class="fas fa-table me-1"></i>
@@ -20,7 +20,7 @@ else
 {
     <div class="row">
         <div class="container-fluid px-4" id="pedido">
-            <h1 class="mt-4">Estoque</h1>
+            <h1 class="mt-4">Bar</h1>
 
             @using (Html.BeginForm("ObterProdutosEstoquePedido", "Pedido", FormMethod.Get, new { id = "FormAdicionarNovoPedido" }))
             {
