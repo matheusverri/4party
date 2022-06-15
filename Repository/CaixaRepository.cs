@@ -21,12 +21,21 @@ namespace ForParty.Repository
                 SELECT 
                     [ValorTotal] = (
 	                    SELECT 
-		                    SUM(E.[Preco])
-	                    FROM 
+		                    [Total] = SUM(E.[Preco]) + (
+								SELECT 
+									SUM([Preco])
+								FROM
+									[ForParty].[dbo].[Cliente] C
+									INNER JOIN [ForParty].[dbo].[Ingresso] I ON C.[Ingresso] = I.[Id]
+								WHERE 
+									[CPF] =  @cpf 
+									AND [StatusPagamento] = 1
+							)
+		                FROM 
 		                    [ForParty].[dbo].[Pedido] P 
 		                    INNER JOIN [ForParty].[dbo].[Estoque] E ON P.[Pedido] = E.[Nome]
 	                    WHERE 
-		                    P.[CPF] = @cpf
+		                    P.[CPF] =  @cpf
                     )
                     ,C.[CPF]
                     ,P.[Pedido]
@@ -35,9 +44,10 @@ namespace ForParty.Repository
                     [ForParty].[dbo].[Cliente] C
                     INNER JOIN [ForParty].[dbo].[Pedido] P ON C.[CPF] = P.[CPF]
                     INNER JOIN [ForParty].[dbo].[Estoque] E ON P.[Pedido] = E.[Nome]
-	            WHERE 
+                WHERE 
 		                C.[CPF] = @cpf
-		                AND P.[Pago] = 0";
+		                AND P.[Pago] IS NULL
+                        AND C.[StatusPagamento] = 1";
 
             var resultado = new ClienteCaixaDTO();
             using (var conn = new SqlConnection(_configuration.GetConnectionString("Conexao")))
@@ -67,6 +77,12 @@ namespace ForParty.Repository
 		                SET [StatusPagamento] = 2
 	                WHERE
 		                [CPF] = @CPF
+
+                    UPDATE 
+	                    [ForParty].[dbo].[Pedido]
+	                    SET [Pago] =1
+                    WHERE
+	                    [CPF] = CPF
 
 	                SET @Retorno = 1
                 END TRY

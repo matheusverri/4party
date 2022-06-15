@@ -193,10 +193,10 @@ namespace ForParty.Repository
         {
             var parametro = new DynamicParameters();
             parametro.Add("@Nome", model.Nome, DbType.String);
-            parametro.Add("@Preco", model.Preco, DbType.Decimal);
-            parametro.Add("@Quantidade", model.Quantidade, DbType.Int32);
-            parametro.Add("@DataEntrada", model.DataEntrada, DbType.DateTime);
-            parametro.Add("@DataVencimento", model.DataVencimento, DbType.DateTime);
+            parametro.Add("@Preco", model.Preco, DbType.String);
+            parametro.Add("@Quantidade", model.Quantidade, DbType.String);
+            parametro.Add("@DataEntrada", model.DataEntrada, DbType.String);
+            parametro.Add("@DataVencimento", model.DataVencimento, DbType.String);
             parametro.Add("@Retorno", dbType: DbType.Boolean, direction: ParameterDirection.Output);
 
             var consulta = @"
@@ -222,7 +222,9 @@ namespace ForParty.Repository
                 END TRY
                 BEGIN CATCH
 	                SET @Retorno = 0
-                END CATCH";
+                END CATCH
+
+                SELECT @Retorno";
 
             bool resultado;
             using (var conn = new SqlConnection(_configuration.GetConnectionString("Conexao")))

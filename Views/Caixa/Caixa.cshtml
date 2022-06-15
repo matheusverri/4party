@@ -6,10 +6,10 @@
 <div class="row">
     <div class="container-fluid px-4" id="caixa">
         <div class="offset-md-3">
-            <h1 class="mt-4">Saida</h1>
+            <h1 class="mt-4">Caixa</h1>
             @using (Html.BeginForm("VerificarDadosCaixa", "Caixa", FormMethod.Get, new { id = "FormCaixa" }))
             {
-                <form id="form-informacao-cliente">
+                <form id="form-informacao-caixa">
                     <div class="form-row">
                         <div class="col-6 mt-2">
                             <label class="mb-2">
@@ -66,7 +66,7 @@
                     @using (Html.BeginForm("ConcluirPagamento", "Caixa", FormMethod.Post, new { id = "formConcluirPagamento" }))
                     {
                         <input type="hidden" id="saida-cliente" value="@Model.CPF" name="cpf" />
-                        <button type="submit"  onclick="javascript:location.reload()">Concluir</button>
+                        <button type="submit" class="btn btn-success"  onclick="javascript:location.reload()">Concluir</button>
                     }
                 }
             </div>
@@ -74,4 +74,4 @@
     </div>
 </div>
 
-<script type="text/javascript" charset="utf8" src="~/js/bar/bar.js"></script>
+<script type="text/javascript" charset="utf8" src="~/js/caixa/caixa.js"></script>

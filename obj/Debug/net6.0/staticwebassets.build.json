@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "dlEv+EDbChkCm4+8mltIff/f0wiVRMwIWfsqSOBMGQA=",
+  "Hash": "vr1I2fWelQ3FborwnytadRDqQlkixCupq7nlesIAXgQ=",
   "Source": "ForParty",
   "BasePath": "_content/ForParty",
   "Mode": "Default",
@@ -153,6 +153,23 @@
       "OriginalItemSpec": "wwwroot\\js\\bar\\bar.js"
     },
     {
+      "Identity": "D:\\Git\\for-party\\wwwroot\\js\\caixa\\caixa.js",
+      "SourceId": "ForParty",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Git\\for-party\\wwwroot\\",
+      "BasePath": "_content/ForParty",
+      "RelativePath": "js/caixa/caixa.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\caixa\\caixa.js"
+    },
+    {
       "Identity": "D:\\Git\\for-party\\wwwroot\\js\\datatables-simple-demo.js",
       "SourceId": "ForParty",
       "SourceType": "Discovered",
@@ -219,6 +236,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\jquery-3.6.0.min.js"
+    },
+    {
+      "Identity": "D:\\Git\\for-party\\wwwroot\\js\\login\\cadastro.js",
+      "SourceId": "ForParty",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Git\\for-party\\wwwroot\\",
+      "BasePath": "_content/ForParty",
+      "RelativePath": "js/login/cadastro.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\login\\cadastro.js"
     },
     {
       "Identity": "D:\\Git\\for-party\\wwwroot\\js\\login\\login.js",

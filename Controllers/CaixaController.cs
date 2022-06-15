@@ -39,11 +39,11 @@ namespace ForParty.Controllers
             try
             {
                 var resultado = await _caixaService.ConcluirPagamento(cpf);
-                return View("Caixa");
+                return RedirectToAction("Caixa");
             }
             catch (Exception e)
             {
-                return View("Caixa");
+                return RedirectToAction("Caixa");
             }
         }
     }
